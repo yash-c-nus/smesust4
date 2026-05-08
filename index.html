@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SustainSME — ESG Questionnaire</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <header class="top-header">
+        <div class="header-left">
+            <div class="logo">
+                <div class="logo-icon">S</div>
+                <span class="logo-text">SustainSME</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-action">
+                <span class="header-action-icon">📋</span>
+                <span>Questionnaire</span>
+            </div>
+            <div class="header-action">
+                <span class="header-action-icon">📊</span>
+                <span>Results</span>
+            </div>
+            <div class="user-avatar">Y</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Page Title Area -->
+        <div class="page-title-area">
+            <div class="page-title-left">
+                <h1 class="page-title">ESG Assessment</h1>
+                <p class="page-subtitle">Complete the questionnaire across 5 categories to generate your sustainability scorecard.</p>
+            </div>
+        </div>
+
+        <!-- Dashboard Overview Cards -->
+        <div class="overview-grid">
+            <!-- Status Card -->
+            <div class="overview-card status-card">
+                <div class="card-label">STATUS</div>
+                <div class="status-number">
+                    <span class="status-completed" id="globalCompleted">0</span><span class="status-total">/<span id="globalTotal">33</span></span>
+                </div>
+                <div class="status-bar" id="globalStatusBar">
+                    <div class="status-segment completed" id="segCompleted" style="width: 0%"></div>
+                    <div class="status-segment skipped" id="segSkipped" style="width: 0%"></div>
+                    <div class="status-segment not-started" id="segNotStarted" style="width: 100%"></div>
+                </div>
+                <div class="status-legend">
+                    <span class="legend-item"><span class="legend-dot completed"></span><span id="legendCompleted">0</span> Completed</span>
+                    <span class="legend-item"><span class="legend-dot skipped"></span><span id="legendSkipped">0</span> Skipped</span>
+                    <span class="legend-item"><span class="legend-dot not-started"></span><span id="legendNotStarted">33</span> Not started</span>
+                </div>
+            </div>
+
+            <!-- Progress Card -->
+            <div class="overview-card progress-card">
+                <div class="card-label">PROGRESS</div>
+                <div class="progress-percentage" id="progressPercent">0%</div>
+                <p class="progress-desc">of indicators addressed</p>
+                <div class="progress-bar-track">
+                    <div class="progress-bar-fill" id="progressBarFill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Categories Card -->
+            <div class="overview-card categories-card">
+                <div class="card-label">CATEGORIES</div>
+                <div class="categories-number">5</div>
+                <div class="categories-list">
+                    <span class="cat-dot" style="background:#16a34a"></span>
+                    <span class="cat-dot" style="background:#f59e0b"></span>
+                    <span class="cat-dot" style="background:#3b82f6"></span>
+                    <span class="cat-dot" style="background:#8b5cf6"></span>
+                    <span class="cat-dot" style="background:#64748b"></span>
+                </div>
+                <p class="categories-desc">E · S · G pillars covered</p>
+            </div>
+
+            <!-- Data Window Card -->
+            <div class="overview-card data-card">
+                <div class="card-label">DATA WINDOW</div>
+                <div class="data-number">3 <span class="data-unit">years</span></div>
+                <p class="data-desc">of historical data requested across indicators</p>
+            </div>
+        </div>
+
+        <!-- Section Pills -->
+        <div class="section-pills" id="sectionPills">
+            <button class="section-pill active" data-section="0">
+                <span class="pill-dot" style="background:#16a34a"></span>
+                <span class="pill-label">Carbon & Climate</span>
+                <span class="pill-count" id="pillCount0">0/5</span>
+            </button>
+            <button class="section-pill" data-section="1">
+                <span class="pill-dot" style="background:#f59e0b"></span>
+                <span class="pill-label">Energy & Resource</span>
+                <span class="pill-count" id="pillCount1">0/7</span>
+            </button>
+            <button class="section-pill" data-section="2">
+                <span class="pill-dot" style="background:#3b82f6"></span>
+                <span class="pill-label">Environmental</span>
+                <span class="pill-count" id="pillCount2">0/2</span>
+            </button>
+            <button class="section-pill" data-section="3">
+                <span class="pill-dot" style="background:#8b5cf6"></span>
+                <span class="pill-label">Social & Workforce</span>
+                <span class="pill-count" id="pillCount3">0/10</span>
+            </button>
+            <button class="section-pill" data-section="4">
+                <span class="pill-dot" style="background:#64748b"></span>
+                <span class="pill-label">Governance</span>
+                <span class="pill-count" id="pillCount4">0/9</span>
+            </button>
+        </div>
+
+        <!-- Sections Viewport -->
+        <div class="sections-viewport">
+            <div class="sections-track" id="sectionsTrack">
+
+                <!-- SECTION 1: Carbon & Climate Performance -->
+                <div class="section-slide" data-section-index="0">
+                    <div class="section-header-card" style="border-left-color: #16a34a">
+                        <div class="section-header-top">
+                            <div class="section-badge" style="background:#16a34a">1</div>
+                            <div class="section-header-info">
+                                <h2>Carbon & Climate Performance</h2>
+                                <p>Captures how well the company tracks, targets, and reduces its carbon emissions.</p>
+                            </div>
+                            <div class="section-header-metric">
+                                <div class="metric-number" id="sectionMetric0">0<span class="metric-of">/5</span></div>
+                                <div class="metric-label">COMPLETED</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="indicators-list">
+                        <div class="indicator-row" data-indicator="1.1">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">1.1</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Carbon Emissions Tracking</div>
+                                <div class="indicator-desc">Does the company systematically track its carbon emissions (Scope 1 & 2)?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.1</span><span class="tag">Q2.2</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="1.2">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">1.2</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Emissions Tracking Maturity</div>
+                                <div class="indicator-desc">How advanced and complete is the company's emissions tracking capability, and what challenges remain?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.3</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="1.3">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">1.3</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Net-Zero Target</div>
+                                <div class="indicator-desc">Does the company have a stated net-zero carbon emissions target with a clear timeline?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.6</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="1.4">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">1.4</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Emissions Reduction Plan</div>
+                                <div class="indicator-desc">Does the company have a concrete reduction plan for Scope 1 and/or Scope 2 emissions?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.7</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="1.5">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">1.5</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Intensity-Based Reduction Target</div>
+                                <div class="indicator-desc">Does the company have an emissions intensity target (e.g., tCO₂e per unit of revenue or output)?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.9</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-nav-buttons">
+                        <div></div>
+                        <button class="nav-btn next-btn" data-target="1">Continue to Energy & Resource →</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: Energy & Resource Use -->
+                <div class="section-slide" data-section-index="1">
+                    <div class="section-header-card" style="border-left-color: #f59e0b">
+                        <div class="section-header-top">
+                            <div class="section-badge" style="background:#f59e0b">2</div>
+                            <div class="section-header-info">
+                                <h2>Energy & Resource Use</h2>
+                                <p>Measures energy consumption patterns, resource efficiency, waste management, and adoption of renewables.</p>
+                            </div>
+                            <div class="section-header-metric">
+                                <div class="metric-number" id="sectionMetric1">0<span class="metric-of">/7</span></div>
+                                <div class="metric-label">COMPLETED</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="indicators-list">
+                        <div class="indicator-row" data-indicator="2.1">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">2.1</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Physical Footprint</div>
+                                <div class="indicator-desc">Does the company own, lease, or operate physical land or facilities?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.4</span><span class="tag">Q2.5</span><span class="tag">Q2.6</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="2.2">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">2.2</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Machinery & Equipment Energy Use</div>
+                                <div class="indicator-desc">What is the energy consumption for machinery/equipment by source over the last 3 years?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.7</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="2.3">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">2.3</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Vehicle Fleet & Energy</div>
+                                <div class="indicator-desc">Does the company operate its own vehicle fleet, and what is its energy consumption?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.8</span><span class="tag">Q2.9</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="2.4">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">2.4</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Electricity Consumption</div>
+                                <div class="indicator-desc">What is the total electricity consumption and cost trend over the last 3 years?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.10</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="2.5">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">2.5</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Renewable Energy Adoption</div>
+                                <div class="indicator-desc">Has the company generated, purchased, or sold renewable energy (including RECs)?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.11</span><span class="tag">Q2.12</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="2.6">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">2.6</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Water Consumption</div>
+                                <div class="indicator-desc">What is the company's water consumption trend (cubic meters) over the last 3 years?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.13</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="2.7">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">2.7</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Waste Generation & Recycling</div>
+                                <div class="indicator-desc">What is the company's waste generated vs. waste recycled, and what % of recycled input materials are used?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.14</span><span class="tag">Q2.15</span><span class="tag">Q2.16</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-nav-buttons">
+                        <button class="nav-btn back-btn" data-target="0">← Back to Carbon & Climate</button>
+                        <button class="nav-btn next-btn" data-target="2">Continue to Environmental →</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Environmental Stewardship -->
+                <div class="section-slide" data-section-index="2">
+                    <div class="section-header-card" style="border-left-color: #3b82f6">
+                        <div class="section-header-top">
+                            <div class="section-badge" style="background:#3b82f6">3</div>
+                            <div class="section-header-info">
+                                <h2>Environmental Stewardship</h2>
+                                <p>Assesses the company's awareness and management of its impact on natural ecosystems.</p>
+                            </div>
+                            <div class="section-header-metric">
+                                <div class="metric-number" id="sectionMetric2">0<span class="metric-of">/2</span></div>
+                                <div class="metric-label">COMPLETED</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="indicators-list">
+                        <div class="indicator-row" data-indicator="3.1">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">3.1</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Biodiversity Exposure</div>
+                                <div class="indicator-desc">Are any company sites located in or near areas of high biodiversity value (nature reserves, wetlands, forests, coastal zones, mangroves)?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.17</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="3.2">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">3.2</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Environmental Impact Assessment</div>
+                                <div class="indicator-desc">Has the company conducted an EIA or similar environmental review to evaluate how its operations affect the environment?</div>
+                                <div class="indicator-tags"><span class="tag">Q2.18</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-nav-buttons">
+                        <button class="nav-btn back-btn" data-target="1">← Back to Energy & Resource</button>
+                        <button class="nav-btn next-btn" data-target="3">Continue to Social & Workforce →</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: Social & Workforce Responsibility -->
+                <div class="section-slide" data-section-index="3">
+                    <div class="section-header-card" style="border-left-color: #8b5cf6">
+                        <div class="section-header-top">
+                            <div class="section-badge" style="background:#8b5cf6">4</div>
+                            <div class="section-header-info">
+                                <h2>Social & Workforce Responsibility</h2>
+                                <p>Evaluates workforce management, fair treatment, development investment, and health safeguards.</p>
+                            </div>
+                            <div class="section-header-metric">
+                                <div class="metric-number" id="sectionMetric3">0<span class="metric-of">/10</span></div>
+                                <div class="metric-label">COMPLETED</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="indicators-list">
+                        <div class="indicator-row" data-indicator="4.1">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.1</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Workforce Strategy</div>
+                                <div class="indicator-desc">Does the company have a formal HR strategy to attract, retain, and develop employees?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.1</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.2">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.2</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Workforce Composition & Diversity</div>
+                                <div class="indicator-desc">What is the employee breakdown by contract status, gender, and age group?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.2</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.3">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.3</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Employee Retention</div>
+                                <div class="indicator-desc">What is the employee turnover rate by gender over the last 3 years?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.3</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.4">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.4</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Fair Compensation</div>
+                                <div class="indicator-desc">What is the average annual salary per employee, and has the company reviewed gender pay gaps?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.4</span><span class="tag">Q3.5</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.5">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.5</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Benefits & Entitlements</div>
+                                <div class="indicator-desc">What leave entitlements and ownership-based benefits does the company provide?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.6</span><span class="tag">Q3.7</span><span class="tag">Q3.12</span><span class="tag">Q3.14</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.6">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.6</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Training & Development</div>
+                                <div class="indicator-desc">What are the total training hours, costs, and number of employees trained?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.8</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.7">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.7</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Health & Safety</div>
+                                <div class="indicator-desc">Does the company have a formal H&S policy, and how many occupational health incidents occurred?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.9</span><span class="tag">Q3.10</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.8">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.8</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Misconduct & Ethics</div>
+                                <div class="indicator-desc">How many misconduct incidents occurred and what were the associated costs?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.11</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.9">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.9</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Community & Volunteering</div>
+                                <div class="indicator-desc">What is the company's employee volunteering footprint for social impact?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.13</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="4.10">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">4.10</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Stakeholder Satisfaction</div>
+                                <div class="indicator-desc">Has the company conducted employee or customer satisfaction surveys?</div>
+                                <div class="indicator-tags"><span class="tag">Q3.15</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-nav-buttons">
+                        <button class="nav-btn back-btn" data-target="2">← Back to Environmental</button>
+                        <button class="nav-btn next-btn" data-target="4">Continue to Governance →</button>
+                    </div>
+                </div>
+
+                <!-- SECTION 5: Governance, Targets & Transparency -->
+                <div class="section-slide" data-section-index="4">
+                    <div class="section-header-card" style="border-left-color: #64748b">
+                        <div class="section-header-top">
+                            <div class="section-badge" style="background:#64748b">5</div>
+                            <div class="section-header-info">
+                                <h2>Governance, Targets & Transparency</h2>
+                                <p>Assesses corporate governance quality, sustainability strategy, disclosure practices, and ethical conduct.</p>
+                            </div>
+                            <div class="section-header-metric">
+                                <div class="metric-number" id="sectionMetric4">0<span class="metric-of">/9</span></div>
+                                <div class="metric-label">COMPLETED</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="indicators-list">
+                        <div class="indicator-row" data-indicator="5.1">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.1</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Board Composition & Oversight</div>
+                                <div class="indicator-desc">What is the board's composition, and have there been changes in the past 2 years?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.1</span><span class="tag">Q4.2</span><span class="tag">Q4.3</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="5.2">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.2</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Sustainability Personnel</div>
+                                <div class="indicator-desc">Does the company have dedicated sustainability staff?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.4</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="5.3">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.3</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Sustainability Strategy</div>
+                                <div class="indicator-desc">Does the company have a documented sustainability strategy?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.5</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="5.4">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.4</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Sustainability Training & Certifications</div>
+                                <div class="indicator-desc">What sustainability-related training and certifications has the company or its sustainability team obtained?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.10</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="5.5">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.5</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Sustainability Reporting & Disclosure</div>
+                                <div class="indicator-desc">Does the company publish a sustainability report or climate risk disclosure?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.11</span><span class="tag">Q4.12</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="5.6">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.6</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">ESG Rating</div>
+                                <div class="indicator-desc">Does the company currently have or seek an ESG rating?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.13</span><span class="tag">Q4.14</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="5.7">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.7</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Materiality Assessment</div>
+                                <div class="indicator-desc">Has the company conducted a materiality assessment of its business activities on society and stakeholders?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.15</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="5.8">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.8</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Ethical Conduct</div>
+                                <div class="indicator-desc">What costs has the company incurred from unethical behaviour incidents?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.16</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                        <div class="indicator-row" data-indicator="5.9">
+                            <div class="indicator-status"><div class="status-circle"></div></div>
+                            <div class="indicator-num">5.9</div>
+                            <div class="indicator-content">
+                                <div class="indicator-title">Cybersecurity & Data Privacy</div>
+                                <div class="indicator-desc">What costs has the company incurred from cyber attacks and privacy breaches?</div>
+                                <div class="indicator-tags"><span class="tag">Q4.17</span></div>
+                            </div>
+                            <div class="indicator-actions">
+                                <button class="action-btn complete-btn" title="Mark Complete">✓</button>
+                                <button class="action-btn skip-btn" title="Skip">—</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-nav-buttons">
+                        <button class="nav-btn back-btn" data-target="3">← Back to Social & Workforce</button>
+                        <div></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Nav Button -->
+    <button class="floating-nav-btn" id="floatingNavBtn">☰</button>
+    <div class="floating-nav-panel" id="floatingNavPanel">
+        <div class="nav-panel-header">
+            <span>Sections</span>
+            <button class="nav-panel-close" id="navPanelClose">×</button>
+        </div>
+        <div class="nav-panel-list" id="navPanelList"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
